@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomIcon extends StatelessWidget {
-  const CustomIcon({super.key});
+  final IconData icon;
+  const CustomIcon({super.key, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,8 @@ class CustomIcon extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.0),
             color: const Color.fromARGB(137, 36, 33, 33)),
-        child: const Icon(
-          Icons.search,
+        child: Icon(
+          icon,
           size: 28,
         ),
       ),
