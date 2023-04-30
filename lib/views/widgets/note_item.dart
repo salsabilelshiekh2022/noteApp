@@ -16,7 +16,7 @@ class NoteItem extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.all(32.0),
+        padding: const EdgeInsets.all(24.0),
         decoration: BoxDecoration(
           color: const Color(0xffFFCD7B),
           borderRadius: BorderRadius.circular(16.0),
@@ -46,7 +46,7 @@ class NoteItem extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 16.0,
+              height: 12.0,
             ),
             Text(
               'May 21,  2022',
