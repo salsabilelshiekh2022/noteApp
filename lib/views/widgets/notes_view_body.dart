@@ -7,11 +7,11 @@ class NotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
-          children: const [
+          children: [
             CustomAppBar(
               title: "Note",
               icon: Icons.search,
