@@ -4,7 +4,8 @@ import '../../constants/constant.dart';
 
 class CustomButton extends StatelessWidget {
   final void Function()? onTap;
-  const CustomButton({super.key, this.onTap});
+  final bool isLoading;
+  const CustomButton({super.key, this.onTap, this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +18,16 @@ class CustomButton extends StatelessWidget {
             decoration: BoxDecoration(
                 color: primaryColor, borderRadius: BorderRadius.circular(8)),
             child: Center(
-              child: Text(
-                'Add',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              child: isLoading
+                  ? const CircularProgressIndicator(
                       color: Colors.black,
+                    )
+                  : Text(
+                      'Add',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            color: Colors.black,
+                          ),
                     ),
-              ),
             ),
           )),
     );
