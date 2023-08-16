@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:note_app/cubits/cubit/notes_cubit.dart';
 import 'package:note_app/views/pages/edit_note_page.dart';
 
 import '../../models/note_model.dart';
@@ -6,6 +9,7 @@ import '../../models/note_model.dart';
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.note});
   final NoteModel note;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -43,7 +47,11 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+
+                  BlocProvider.of<NotesCubit>(context).fetchAllData();
+                },
                 icon: const Icon(Icons.delete, size: 24, color: Colors.black),
               ),
             ),

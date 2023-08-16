@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:note_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:note_app/cubits/cubit/notes_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/widgets/custom_bottom.dart';
+
 import 'package:note_app/views/widgets/custom_text_field.dart';
 
 class AddNoteButtomSheet extends StatelessWidget {
@@ -15,6 +18,7 @@ class AddNoteButtomSheet extends StatelessWidget {
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
           if (state is AddNoteCubitSuccess) {
+            BlocProvider.of<NotesCubit>(context).fetchAllData();
             Navigator.pop(context);
           }
           if (state is AddNoteCubitFailer) {
@@ -86,10 +90,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
               onTap: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
+                  var currentDate = DateTime.now();
+                  var formatedDate = DateFormat.yMMMd().format(currentDate);
                   var noteModel = NoteModel(
+                      index: 2,
                       title: title!,
                       subTitle: subTitle!,
-                      date: DateTime.now().toString(),
+                      date: formatedDate,
                       color: Colors.teal.value);
                   BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                 } else {
