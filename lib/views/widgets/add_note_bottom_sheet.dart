@@ -21,6 +21,16 @@ class AddNoteButtomSheet extends StatelessWidget {
         listener: (context, state) {
           if (state is AddNoteCubitSuccess) {
             BlocProvider.of<NotesCubit>(context).fetchAllData();
+            const snackBar = SnackBar(
+              content: Text('adding note successfully!'),
+              animation: kAlwaysCompleteAnimation,
+              backgroundColor: Color.fromARGB(255, 11, 224, 121),
+              elevation: 6.0,
+              behavior: SnackBarBehavior.floating,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+            );
+
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
             Navigator.pop(context);
           }
           if (state is AddNoteCubitFailer) {

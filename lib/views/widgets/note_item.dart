@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:note_app/cubits/cubit/notes_cubit.dart';
@@ -66,6 +67,10 @@ class NoteItem extends StatelessWidget {
           ],
         ),
       ),
-    );
+    )
+        .animate()
+        .fadeIn() // uses `Animate.defaultDuration`
+        .scale() // inherits duration from fadeIn
+        .move(delay: 300.ms, duration: 600.ms);
   }
 }
