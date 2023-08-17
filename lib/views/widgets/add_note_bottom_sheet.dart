@@ -8,6 +8,8 @@ import 'package:note_app/views/widgets/custom_bottom.dart';
 
 import 'package:note_app/views/widgets/custom_text_field.dart';
 
+import 'color_list_view.dart';
+
 class AddNoteButtomSheet extends StatelessWidget {
   const AddNoteButtomSheet({super.key});
 
@@ -81,6 +83,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
+          const SizedBox(
+            height: 32,
+          ),
+          const ColorListView(),
           const SizedBox(
             height: 32,
           ),
