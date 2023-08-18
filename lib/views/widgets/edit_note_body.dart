@@ -5,7 +5,6 @@ import 'package:note_app/views/widgets/custom_app_bar.dart';
 import 'package:note_app/views/widgets/custom_text_field.dart';
 
 import '../../models/note_model.dart';
-import 'color_list_view.dart';
 import 'edit_note_list_view.dart';
 
 class EditNoteBody extends StatefulWidget {
