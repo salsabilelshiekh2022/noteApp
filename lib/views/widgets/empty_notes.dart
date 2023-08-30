@@ -38,7 +38,7 @@ class EmptyNotes extends StatelessWidget {
             height: 20,
           ),
           const Text(
-            "You don't have any bookmark at this time ",
+            "You don't have any notes at this time ",
           )
               .animate()
               .fadeIn() // uses `Animate.defaultDuration`
